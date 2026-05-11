@@ -40,3 +40,11 @@ python3 -m uvicorn main:app --reload
 GET /health: Check system and Vector DB status.
 GET /stats: View real-time savings, cache hit rates, and latency reduction.
 POST /query: The main entry point for semantic routing and caching.
+
+### 📸 Demo Images
+
+### API Documentation (Swagger UI)
+![API Docs Interface](./assets/docs-ui.png)
+
+### Real-Time Savings Dashboard
+![Stats Interface](./assets/stats-ui.png)
