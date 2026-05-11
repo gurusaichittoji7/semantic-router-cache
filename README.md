@@ -31,7 +31,6 @@ pip install -r requirements.txt
 
 ### 2. Environment Setup
 OPENAI_API_KEY=your_key_here
-
 PINECONE_API_KEY=your_key_here
 
 ### 3. Run the Server
