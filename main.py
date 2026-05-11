@@ -5,14 +5,14 @@ from dotenv import load_dotenv
 from pinecone import Pinecone
 from openai import OpenAI
 
-# 1. This looks at your .env file and grabs your API keys
+# 1. This looks at our .env file and grabs our API keys
 load_dotenv()
 
-# 2. This sets up the connection to Pinecone (your "Memory")
+# 2. This sets up the connection to Pinecone (our "Memory")
 pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index = pc.Index("semantic-cache")
 
-# 3. This sets up the connection to OpenAI (your "Brain")
+# 3. This sets up the connection to OpenAI (our "Brain")
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # 4. This creates your Web API
@@ -22,7 +22,7 @@ app = FastAPI()
 class QueryRequest(BaseModel):
     prompt: str
 
-    # Add this at the top with your other variables
+    # Add this at the top with our other variables
 stats = {
     "total_requests": 0,
     "cache_hits": 0,
@@ -31,7 +31,7 @@ stats = {
 
 @app.get("/stats")
 async def get_stats():
-    # This is a 'Pro' move for your resume: showing you care about performance
+    
     hit_rate = (stats["cache_hits"] / stats["total_requests"] * 100) if stats["total_requests"] > 0 else 0
     return {
         "cache_hit_rate": f"{hit_rate:.2f}%",
